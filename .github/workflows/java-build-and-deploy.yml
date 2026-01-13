@@ -39,9 +39,11 @@ jobs:
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
+          #name: java-app
+          #path: '${{ github.workspace }}/target/*.jar'
           name: java-app
-         # path: '${{ github.workspace }}/target/*.jar'
-          path: '**/target/*.jar' # Added **/ to search subfolders
+          path: '**/target/*.jar' # This will now find the JARs in your sub-folders
+        
 
   deploy:
     runs-on: ubuntu-latest
